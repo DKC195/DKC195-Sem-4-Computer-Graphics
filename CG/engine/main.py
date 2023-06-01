@@ -30,7 +30,7 @@ a = pygame.event.set_grab(False)
 
 Car = Mesh()
 # first parameter for the obj file and second one for the color in RGB
-Car.triangles = LoadMesh("../assets/temple.obj", (255, 0, 0))
+Car.triangles = LoadMesh("../assets/Car.obj", (255, 0, 0))
 
 # create scene and the world
 # creating a scene  

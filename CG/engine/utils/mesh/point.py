@@ -4,9 +4,6 @@ from utils.vector import Vector3
 from constants import Width, Height, Zoffset
 import pygame
 import utils.matrix as matrix
-from utils.vector import Vector3
-from constants import Width, Height, Zoffset
-from utils.camera import Camera
 
 
 class Point:

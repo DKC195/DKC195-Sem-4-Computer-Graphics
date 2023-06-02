@@ -1,5 +1,6 @@
 # importing necessary libraries i.e camera, light, mesh and scene
-import sys
+# import sys
+from sys import exit
 import pygame
 from pygame.locals import *
 from constants import *
@@ -9,7 +10,6 @@ from utils.camera import Camera
 from utils.light import Light
 from utils.mesh.base import Mesh
 from utils.mesh.meshes import *
-from utils.mesh.spheres import *
 from utils.mesh.point import *
 from utils.matrix import *
 from utils.tools import *
@@ -95,4 +95,4 @@ while run:
     angle += 0.01
 
 pygame.quit()
-sys.exit()
+exit(0)

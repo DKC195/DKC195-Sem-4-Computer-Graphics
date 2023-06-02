@@ -3,7 +3,6 @@ from constants import *
 from utils.vector import *
 from math import cos, sin
 from copy import deepcopy
-from math import cos, sin
 from utils.vector import Vector3
 
 

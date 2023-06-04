@@ -17,7 +17,7 @@ from utils.world import Scene
 
 pygame.init()
 # screen = pygame.display.set_mode(Size)
-flags = DOUBLEBUF
+flags = pygame.DOUBLEBUF
 screen = pygame.display.set_mode(Size, flags, 16)
 clock = pygame.time.Clock()
 fps = 60
@@ -92,7 +92,7 @@ while run:
 
 
     pygame.display.flip()
-    angle += 0.01
+    angle += 0.005
 
 pygame.quit()
 exit(0)

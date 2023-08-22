@@ -50,7 +50,6 @@ def LoadMesh(objectPath, color=(255, 255, 255)):
             for el in temp:
                 indexList = el.split('/')
                 line_indices.append(int(indexList[0]) )
-
             triangle_indices.append(line_indices)
 
     for t in triangle_indices:

@@ -57,42 +57,44 @@ while run:
     dt = clock.tick(fps)/100
     frameRate = clock.get_fps()
     pygame.display.set_caption(str(frameRate) + " fps")
-    run = HandleEvent(camera, dt)
     hue = 0
-    # handle input
-    camera.HandleInput(dt)
+    if HandleEvent(camera, dt):
+        # handle input
+        camera.HandleInput(dt)
 
-    if moveLight == True and light != None:
-        mx, my = pygame.mouse.get_pos()
-        _x = translateValue( mx, 0,  Width,  -1,  1)
-        _y = translateValue( my, 0, Height, -1, 1)
-        light = Light(Vector3(-_x, -_y, -1))
+        if moveLight == True and light != None:
+            mx, my = pygame.mouse.get_pos()
+            _x = translateValue( mx, 0,  Width,  -1,  1)
+            _y = translateValue( my, 0, Height, -1, 1)
+            light = Light(Vector3(-_x, -_y, -1))
 
-    # apply the transformation matrix here
-    Car.transform = Matrix.rotation_y(angle) @ Matrix.scaling(1.9)
-
-
-    # display scene
-    scene.update(
-        dt = dt,
-        camera=camera,
-        light=light,
-        screen=screen,
-        showAxis=True,
-        fill=True,
-        wireframe=False,
-        vertices=True,
-        depth=True,
-        clippingDebug=False,
-        showNormals=False,
-        radius=1,
-        verticeColor=False,
-        wireframeColor=(255, 255, 255),
-        ChangingColor=hue)
+        # apply the transformation matrix here
+        Car.transform = Matrix.rotation_y(angle) @ Matrix.scaling(1.9)
 
 
-    pygame.display.flip()
-    angle += 0.005
+        # display scene
+        scene.update(
+            dt = dt,
+            camera=camera,
+            light=light,
+            screen=screen,
+            showAxis=True,
+            fill=True,
+            wireframe=False,
+            vertices=True,
+            depth=True,
+            clippingDebug=False,
+            showNormals=False,
+            radius=1,
+            verticeColor=False,
+            wireframeColor=(255, 255, 255),
+            ChangingColor=hue)
+
+
+        pygame.display.flip()
+        angle += 0.005
+    else:
+        run = False
 
 pygame.quit()
 exit(0)

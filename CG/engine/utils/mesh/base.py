@@ -5,7 +5,7 @@ import pygame
 import utils.matrix as matrix
 from utils.vector import Vector3, Normalize, dotProduct, crossProduct
 from utils.triangle import Triangle
-from utils.tools import DrawTriangle, TriangleClipped, hsv2rgb
+from utils.tools import TriangleClipped, hsv2rgb
 from constants import Width, Height, Zoffset, clipping, dim
 import pygame
 
@@ -26,8 +26,6 @@ class Mesh:
     ) -> Mesh:
         triangles = LoadMesh(fname, color)
         return cls(triangles, position)
-
-
 
     def update(
         self, screen, fill, wireframe, dt, camera, light, depth, clippingDebug, hue=0
@@ -78,7 +76,6 @@ class Mesh:
                     projected.vertex2 = matrix.multiplyMatrixVector(clippedTriangles[i].vertex2, camera.projection())
                     projected.vertex3 = matrix.multiplyMatrixVector(clippedTriangles[i].vertex3, camera.projection())
 
-
                     projected.color = clippedTriangles[i].color
                     projected.vertex1 *= Vector3(1, -1, 1)
                     projected.vertex2 *= Vector3(1, -1, 1)
@@ -89,7 +86,6 @@ class Mesh:
                     projected.vertex2 = projected.vertex2 + offsetView
                     projected.vertex3 = projected.vertex3 + offsetView
 
-                    
                     projected.vertex1 *= Vector3(Width, Height, 1) * 0.5
                     projected.vertex2 *= Vector3(Width, Height, 1) * 0.5
                     projected.vertex3 *= Vector3(Width, Height, 1) * 0.5
